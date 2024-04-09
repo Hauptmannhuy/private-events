@@ -1,0 +1,9 @@
+List of all events:
+
+<% @events.each do |event| %>
+<ul>
+<li>Host: <%= event.creator%></li>
+<li>Location: <%= event.location%></li>
+<li>Date: <%= event.date%> </li>
+</ul>
+<% end %>
