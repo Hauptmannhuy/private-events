@@ -1,0 +1,9 @@
+
+<%= @event.each do |detail|%>
+  <h3><%= detail.name %></h3>
+<ul>
+<li>Location: <%= detail.location%>  </li>
+<li>Date <%= detail.date%> </li>
+<li>Description <%= detail.description%> </li>
+</ul>
+<% end %>

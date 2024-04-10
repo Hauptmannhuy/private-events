@@ -2,7 +2,7 @@
 
 <% @user.events.each_with_index do |event, index| %>
 <ul> 
-<li> <%="Event: #{index+1}| Date #{event.date} | Location: #{event.location}"%> </li>
+<li> <%="Event: #{index+1}| Name #{event.name} | Date #{event.date} "%> </li>
 </ul>
 <% end %>
 
