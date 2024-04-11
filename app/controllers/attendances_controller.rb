@@ -1,3 +1,4 @@
+class AttendancesController < ApplicationController
 before_action :authenticate_user!, only: [:new]
 def new  
  @attendance = Attendance.new
@@ -12,4 +13,6 @@ def create
   else
     render :new, status: :unprocessable_entity
   end
+end
+
 end

@@ -1,9 +1,11 @@
 
-<%= @event.each do |detail|%>
+<% @event.each do |detail|%>
   <h3><%= detail.name %></h3>
 <ul>
+<li>Host name: <%= User.find(detail.creator_id).username%> </li>
 <li>Location: <%= detail.location%>  </li>
 <li>Date <%= detail.date%> </li>
 <li>Description <%= detail.description%> </li>
+<li><%= link_to 'Click to participate', attendances_new_path%></li>
 </ul>
 <% end %>

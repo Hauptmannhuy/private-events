@@ -1,9 +1,9 @@
-<%= "Fill out all checkboxes to confirm your participation in event."%>
+<%= "Check out all checkboxes to confirm your participation in event."%>
 
 <%= form_with model: @attendance, method: :post do | form |%>
 <%= form.check_box :date %>
-<%= form.label :date, "I will be able to come at specified time" %>
+<%= form.label :date, "I will be able to come at the the specified time" %>
 <%= form.check_box :permission %>
-<%= form.label :pet_cat, "I give my permission to proccess my data" %>
+<%= form.label :permission, "I give permission to proccess my data" %>
 <%= form.submit "Participate" %>
 <% end %>
