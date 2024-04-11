@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @creator = User.find(current_user)
+    @creator = User.find(current_user.id)
     @event = @creator.events.build(event_params)
     if @event.save
       redirect_to events_path
@@ -24,6 +24,6 @@ class EventsController < ApplicationController
 
   private 
   def event_params
-    params.require(:event).permit(:location, :date)
+    params.require(:event).permit(:name,:description,:location,:date)
   end
 end
