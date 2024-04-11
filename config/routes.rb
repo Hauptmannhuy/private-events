@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "/users/:id", to: "users#show"
 
-  get "/events/new", to: "events#new"
   get "/events", to: "events#index"
+  get "/events/new", to: "events#new"
   post "/events/new", to: "events#create"
+
+  get "/attendances/new", to: "attendances#new"
+  post "/attendances/new", to: "attendances#create"
+  
   root to: "events#index"
 
   # Defines the root path route ("/")
