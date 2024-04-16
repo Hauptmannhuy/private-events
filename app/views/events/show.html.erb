@@ -10,7 +10,11 @@
 <li>Location: <%= @event.location%>  </li>
 <li>Date <%= @event.date%> </li>
 <li>Description <%= @event.description%> </li>
+  <% if user_signed_in?%>
 <li><%= link_to 'Click to participate', attendances_new_path(event_id: @event.id, user_id: current_user.id)%></li>
+  <%else %>
+  <%= "Sign in to participate in event!"%>
+  <%end%>
 </ul>
 
 <h2>List of attendees</h2>
