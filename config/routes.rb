@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/events/new", to: "events#new"
   get "/events/:id", to: "events#show"
   post "/events", to: "events#create"
-  
+
   get "/attendances/new", to: "attendances#new"
   post "/attendances/new", to: "attendances#create"
   

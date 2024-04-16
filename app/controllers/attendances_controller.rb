@@ -1,18 +1,17 @@
 class AttendancesController < ApplicationController
+
 before_action :authenticate_user!, only: [:new]
 def new  
- @attendance = Attendance.new
-end
+  @event = params{:event}
+  @event_id = params[:event_id]
+  @user_id = params[:user_id]
+  @attendance = Attendance.new(attendee_id: @user_id, attended_event_id: @event_id)
 
-def create
-  @event = Event.find(params[:event][:id])
-  @user = User.find(params[:user][:id])
-  @attendance = Attendance.new(attendee_id: @user, attended_event_id: @event)
   if @attendance.save
-    redirect_to @event
+    flash[:alert] = "Participation record successfully created!"
+    redirect_to "/events/#{@event_id}"
   else
     render :new, status: :unprocessable_entity
   end
 end
-
 end

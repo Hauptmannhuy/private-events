@@ -1,11 +1,16 @@
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
 
 <% @event.each do |detail|%>
   <h3><%= detail.name %></h3>
 <ul>
+  <% user = User.find(detail.creator_id)%>
+  <% username = user.username%>
 <li>Host name: <%= User.find(detail.creator_id).username%> </li>
 <li>Location: <%= detail.location%>  </li>
 <li>Date <%= detail.date%> </li>
 <li>Description <%= detail.description%> </li>
-<li><%= link_to 'Click to participate', attendances_new_path%></li>
+<li><%= link_to 'Click to participate', attendances_new_path(event_id: detail.id, user_id: user.id, event: @event)%></li>
 </ul>
 <% end %>
