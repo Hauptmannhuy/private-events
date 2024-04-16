@@ -10,4 +10,16 @@
 <h3>Attended events</h3>
 <h4> Future events:</h4>
 
+<%@user.attended_events.where("date > :date_today", {date_today: Date.today}).each do |event|%>
+<ul> 
+  <li> <%="Name: #{event.name} | Date: #{event.date} "%> </li> 
+</ul>
+<%end%>
 
+<h4> Past events:</h4>
+
+<%@user.attended_events.where("date < :date_today", {date_today: Date.today}).each do |event|%>
+<ul> 
+  <li> <%="Name: #{event.name} | Date: #{event.date} "%> </li> 
+</ul>
+<%end%>
